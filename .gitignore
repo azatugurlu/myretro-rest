@@ -1,0 +1,14 @@
+/target
+.classpath
+.project
+.mvn/**
+.settings/**
+.idea/**
+*.iml
+bin/
+tmp/
+*.swp
+*.tmp
+*.bak
+/logs
+*.DS_Store

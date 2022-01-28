@@ -1,0 +1,33 @@
+server:
+  port: 8083
+spring:
+  servlet:
+     multipart:
+        enabled: true
+        file-size-threshold: 2KB
+        max-file-size: 200MB
+        max-request-size: 215MB
+  datasource:
+    url: jdbc:mysql://localhost:3306/MYRETROAPPDB?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: yourpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: mysql
+    hikari:
+       max-lifetime: 600000
+       
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      #ddl-auto: update
+logging:
+   config: classpath:logback.xml
+check-user-scopes: false

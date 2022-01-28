@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_DIR" value="logs" />
+	<property name="LOG_FILE" value="myretro.log" />
+	<property name="LOG_PATTERN"
+		value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger|%thread] %logger - %msg %n" />
+
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="ROLLING-FILE-APPENDER"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/${LOG_FILE}</file>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_DIR}/${LOG_FILE}_%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>60</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="ASYNC-FILE-APPENDER" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="ROLLING-FILE-APPENDER" />
+	</appender>
+
+<!-- 
+ 	<logger name="com.form" level="debug">
+ 		<appender-ref ref="CONSOLE" />
+ 		<appender-ref ref="ASYNC-FILE-APPENDER" />
+ 	</logger>
+-->	
+ 	<logger name="org.springframework.web.filter.CommonsRequestLoggingFilter">
+	    <level value="DEBUG" />
+	</logger>
+ 
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ASYNC-FILE-APPENDER" />
+	</root>
+
+</configuration>
