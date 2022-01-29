@@ -23,5 +23,9 @@ Installation:
 2. Update Email and SMS keys
 3. Run
 
+Initial users:
+admin: username: admin@example.org, password: 12345678
+user: username: user@example.org, password: 12345678
+
 
 Please see backend project here: https://github.com/azatugurlu/myretro-ui
