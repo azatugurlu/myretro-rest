@@ -24,7 +24,9 @@ Installation:
 3. Run
 
 Initial users:
+
 admin: username: admin@example.org, password: 12345678
+
 user: username: user@example.org, password: 12345678
 
 
