@@ -1,4 +1,6 @@
-FROM openjdk:8 
-ADD target/my-retro-api-0.0.1-SNAPSHOT.jar my-retro-api-0.0.1-SNAPSHOT.jar
+FROM maven:3.8.2-jdk-8
+WORKDIR /my_retro_rest-master
+COPY . .
 EXPOSE 8083 
-ENTRYPOINT ["java", "-jar", "my-retro-api-0.0.1-SNAPSHOT.jar"]
+RUN mvn clean install
+CMD mvn spring-boot:run
