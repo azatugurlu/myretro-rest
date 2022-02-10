@@ -23,6 +23,13 @@ Installation:
 2. Update Email and SMS keys
 3. Run
 
+
+Or you can use docker compose:
+docker compose file: https://github.com/azatugurlu/myretro/blob/main/docker-compose.yml
+1. download file and put on same level with BE and FE code.
+2. run - docker-compose up
+
+
 Initial users:
 
 admin: username: admin@example.org, password: 12345678
